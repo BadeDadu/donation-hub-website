@@ -37,26 +37,26 @@ export default function HomePage() {
             priority
           />
           {/* Overlay with vibrant gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-purple-900/30 to-cyan-900/40 backdrop-blur-[2px]" />
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-purple-900/20 to-cyan-900/30" />
         </div>
         
-        <div className="relative z-10 mx-auto max-w-6xl px-4 py-24 sm:py-32">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-slate-900/60 px-3 py-1 text-sm backdrop-blur shadow-lg shadow-cyan-500/20">
-              <HeartHandshake className="h-4 w-4 text-cyan-400" />
+        <div className="relative z-10 mx-auto max-w-6xl px-4 py-8 sm:py-10">
+          <div className="max-w-xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-slate-900/50 px-2 py-0.5 text-xs backdrop-blur-sm shadow-lg shadow-cyan-500/20">
+              <HeartHandshake className="h-3 w-3 text-cyan-400" />
               <span className="font-medium text-cyan-100">{t.heroTag}</span>
             </div>
-            <h1 className="mt-4 text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl drop-shadow-2xl">
+            <h1 className="mt-2 text-xl font-bold leading-tight text-white sm:text-2xl lg:text-3xl drop-shadow-2xl">
               {t.heroTitle}
             </h1>
-            <p className="mt-4 text-lg text-cyan-50 drop-shadow-lg">
+            <p className="mt-1.5 text-sm text-cyan-50 drop-shadow-lg">
               {t.heroDescription}
             </p>
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <Button asChild size="lg" className="px-6 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white shadow-lg shadow-cyan-500/30 border-0">
+            <div className="mt-3 flex flex-col gap-2 sm:flex-row">
+              <Button asChild className="px-4 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white shadow-lg shadow-cyan-500/30 border-0">
                 <Link href="/donate">{t.donateAnItem}</Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="px-6 border-cyan-400/50 bg-slate-900/60 text-cyan-100 hover:bg-cyan-500/20 hover:text-white hover:border-cyan-400 backdrop-blur shadow-lg">
+              <Button asChild variant="outline" className="px-4 border-cyan-400/50 bg-slate-900/50 text-cyan-100 hover:bg-cyan-500/20 hover:text-white hover:border-cyan-400 backdrop-blur-sm shadow-lg">
                 <Link href="/browse">{t.browseDonations}</Link>
               </Button>
             </div>
