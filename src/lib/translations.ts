@@ -16,6 +16,10 @@ export const translations = {
     donateAnItem: "Donate an Item",
     browseDonations: "Browse Donations",
     
+    recentDonations: "Recent Donations",
+    recentDonationsDescription: "See what others are donating in the community.",
+    viewDetails: "View Details",
+    
     popularCategories: "Popular donation categories",
     categoriesDescription: "From winter coats to kitchenware—every item counts.",
     seeAll: "See all",
@@ -149,6 +153,10 @@ export const translations = {
     donateAnItem: "वस्तु दान करें",
     browseDonations: "दान ब्राउज़ करें",
     
+    recentDonations: "हाल के दान",
+    recentDonationsDescription: "देखें कि समुदाय में अन्य लोग क्या दान कर रहे हैं।",
+    viewDetails: "विवरण देखें",
+    
     popularCategories: "लोकप्रिय दान श्रेणियां",
     categoriesDescription: "सर्दियों के कोट से लेकर रसोई के सामान तक—हर वस्तु मायने रखती है।",
     seeAll: "सभी देखें",
@@ -281,6 +289,10 @@ export const translations = {
     heroDescription: "दानसेतू उदार दात्यांना जवळच्या लोकांशी आणि संस्थांशी जोडते. मिनिटांत वस्तूंची यादी करा आणि त्वरित प्रभाव टाका.",
     donateAnItem: "वस्तू दान करा",
     browseDonations: "देणग्या ब्राउझ करा",
+    
+    recentDonations: "अलीकडील देणग्या",
+    recentDonationsDescription: "समुदायात इतर काय दान करत आहेत ते पहा.",
+    viewDetails: "तपशील पहा",
     
     popularCategories: "लोकप्रिय देणगी श्रेणी",
     categoriesDescription: "हिवाळ्यातील कोटपासून ते स्वयंपाकघरातील सामानापर्यंत—प्रत्येक वस्तू मोजते.",

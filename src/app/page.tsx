@@ -5,9 +5,10 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { HeartHandshake, Shirt, Sofa, Laptop, BookOpen, UtensilsCrossed, Dumbbell, Package } from "lucide-react";
+import { HeartHandshake, Shirt, Sofa, Laptop, BookOpen, UtensilsCrossed, Dumbbell, Package, MapPin } from "lucide-react";
 import { useLanguage } from "@/lib/language-context";
 import { translations } from "@/lib/translations";
+import { useEffect, useState } from "react";
 
 const CATEGORIES = [
   { label: "clothing", icon: Shirt },
@@ -19,9 +20,39 @@ const CATEGORIES = [
   { label: "toysOther", icon: Package },
 ];
 
+interface Donation {
+  id: number;
+  itemName: string;
+  category: string;
+  condition: string;
+  location: string;
+  photoUrls: string[] | null;
+  description: string;
+}
+
 export default function HomePage() {
   const { language } = useLanguage();
   const t = translations[language];
+  const [recentDonations, setRecentDonations] = useState<Donation[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchRecentDonations = async () => {
+      try {
+        const response = await fetch("/api/donations?limit=3&status=available");
+        if (response.ok) {
+          const data = await response.json();
+          setRecentDonations(data);
+        }
+      } catch (error) {
+        console.error("Failed to fetch recent donations:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchRecentDonations();
+  }, []);
 
   return (
     <div className="min-h-screen">
@@ -61,6 +92,86 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Recent Donations */}
+      <section className="mx-auto max-w-6xl px-4 py-14">
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <h2 className="text-2xl font-semibold text-foreground">{t.recentDonations}</h2>
+            <p className="text-foreground/70 mt-1">{t.recentDonationsDescription}</p>
+          </div>
+          <Button asChild variant="ghost" className="hidden sm:inline-flex">
+            <Link href="/browse">{t.seeAll}</Link>
+          </Button>
+        </div>
+
+        {isLoading ? (
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {[1, 2, 3].map((i) => (
+              <Card key={i} className="animate-pulse">
+                <div className="aspect-video bg-muted" />
+                <CardHeader>
+                  <div className="h-6 bg-muted rounded w-3/4" />
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-2">
+                    <div className="h-4 bg-muted rounded w-1/2" />
+                    <div className="h-4 bg-muted rounded w-2/3" />
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        ) : recentDonations.length > 0 ? (
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {recentDonations.map((donation) => (
+              <Card key={donation.id} className="hover:shadow-md transition-shadow overflow-hidden">
+                <div className="relative aspect-video bg-muted">
+                  {donation.photoUrls && donation.photoUrls.length > 0 ? (
+                    <Image
+                      src={donation.photoUrls[0]}
+                      alt={donation.itemName}
+                      fill
+                      className="object-cover"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
+                      <Package className="h-12 w-12" />
+                    </div>
+                  )}
+                </div>
+                <CardHeader>
+                  <CardTitle className="text-lg text-foreground line-clamp-1">
+                    {donation.itemName}
+                  </CardTitle>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Badge variant="secondary" className="text-xs">
+                      {donation.category}
+                    </Badge>
+                    <Badge variant="outline" className="text-xs">
+                      {donation.condition}
+                    </Badge>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+                    <MapPin className="h-4 w-4" />
+                    <span className="line-clamp-1">{donation.location}</span>
+                  </div>
+                  <Button asChild size="sm" className="w-full">
+                    <Link href="/browse">{t.viewDetails}</Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        ) : (
+          <div className="mt-6 text-center py-12">
+            <Package className="h-12 w-12 mx-auto text-muted-foreground mb-4" />
+            <p className="text-muted-foreground">{t.noDonationsFound}</p>
+          </div>
+        )}
       </section>
 
       {/* Featured categories */}
