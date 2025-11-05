@@ -26,37 +26,24 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        {/* Background wallpaper */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/48684663-18a4-4525-a40e-379acad4b922/generated_images/modern-abstract-digital-wallpaper-with-v-54205157-20251105163336.jpg"
-            alt="Donation platform background"
-            fill
-            className="object-cover"
-            priority
-          />
-          {/* Overlay with vibrant gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/30 via-purple-900/20 to-cyan-900/30" />
-        </div>
-        
-        <div className="relative z-10 mx-auto max-w-6xl px-4 py-8 sm:py-10">
+      <section className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-primary/5">
+        <div className="mx-auto max-w-6xl px-4 py-8 sm:py-10">
           <div className="max-w-xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-slate-900/50 px-2 py-0.5 text-xs backdrop-blur-sm shadow-lg shadow-cyan-500/20">
-              <HeartHandshake className="h-3 w-3 text-cyan-400" />
-              <span className="font-medium text-cyan-100">{t.heroTag}</span>
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-2 py-0.5 text-xs">
+              <HeartHandshake className="h-3 w-3 text-primary" />
+              <span className="font-medium text-foreground">{t.heroTag}</span>
             </div>
-            <h1 className="mt-2 text-xl font-bold leading-tight text-white sm:text-2xl lg:text-3xl drop-shadow-2xl">
+            <h1 className="mt-2 text-xl font-bold leading-tight text-foreground sm:text-2xl lg:text-3xl">
               {t.heroTitle}
             </h1>
-            <p className="mt-1.5 text-sm text-cyan-50 drop-shadow-lg">
+            <p className="mt-1.5 text-sm text-muted-foreground">
               {t.heroDescription}
             </p>
             <div className="mt-3 flex flex-col gap-2 sm:flex-row">
-              <Button asChild className="px-4 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white shadow-lg shadow-cyan-500/30 border-0">
+              <Button asChild className="px-4">
                 <Link href="/donate">{t.donateAnItem}</Link>
               </Button>
-              <Button asChild variant="outline" className="px-4 border-cyan-400/50 bg-slate-900/50 text-cyan-100 hover:bg-cyan-500/20 hover:text-white hover:border-cyan-400 backdrop-blur-sm shadow-lg">
+              <Button asChild variant="outline" className="px-4">
                 <Link href="/browse">{t.browseDonations}</Link>
               </Button>
             </div>
