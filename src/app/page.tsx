@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -25,8 +26,21 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-accent/5">
-        <div className="relative mx-auto max-w-6xl px-4 py-24 sm:py-32">
+      <section className="relative overflow-hidden">
+        {/* Background wallpaper */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/48684663-18a4-4525-a40e-379acad4b922/generated_images/warm-and-welcoming-abstract-background-w-ebcd61e7-20251105162124.jpg"
+            alt="Donation platform background"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Overlay for better text readability */}
+          <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+        </div>
+        
+        <div className="relative z-10 mx-auto max-w-6xl px-4 py-24 sm:py-32">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 rounded-full border bg-background/80 px-3 py-1 text-sm backdrop-blur shadow-sm">
               <HeartHandshake className="h-4 w-4 text-primary" />
