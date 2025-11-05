@@ -30,14 +30,14 @@ export default function HomePage() {
         {/* Background wallpaper */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/48684663-18a4-4525-a40e-379acad4b922/generated_images/warm-and-welcoming-abstract-background-w-ebcd61e7-20251105162124.jpg"
+            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/48684663-18a4-4525-a40e-379acad4b922/generated_images/soft-calming-abstract-background-with-ge-619babec-20251105162400.jpg"
             alt="Donation platform background"
             fill
             className="object-cover"
             priority
           />
           {/* Overlay for better text readability */}
-          <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-background/30 backdrop-blur-sm" />
         </div>
         
         <div className="relative z-10 mx-auto max-w-6xl px-4 py-24 sm:py-32">
