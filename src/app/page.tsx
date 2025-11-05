@@ -30,33 +30,33 @@ export default function HomePage() {
         {/* Background wallpaper */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/48684663-18a4-4525-a40e-379acad4b922/generated_images/soft-calming-abstract-background-with-ge-619babec-20251105162400.jpg"
+            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/48684663-18a4-4525-a40e-379acad4b922/generated_images/modern-abstract-digital-wallpaper-with-v-54205157-20251105163336.jpg"
             alt="Donation platform background"
             fill
             className="object-cover"
             priority
           />
-          {/* Overlay for better text readability */}
-          <div className="absolute inset-0 bg-background/30 backdrop-blur-sm" />
+          {/* Overlay with vibrant gradient */}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/40 via-purple-900/30 to-cyan-900/40 backdrop-blur-[2px]" />
         </div>
         
         <div className="relative z-10 mx-auto max-w-6xl px-4 py-24 sm:py-32">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 rounded-full border bg-background/80 px-3 py-1 text-sm backdrop-blur shadow-sm">
-              <HeartHandshake className="h-4 w-4 text-primary" />
-              <span className="font-medium text-foreground">{t.heroTag}</span>
+            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-slate-900/60 px-3 py-1 text-sm backdrop-blur shadow-lg shadow-cyan-500/20">
+              <HeartHandshake className="h-4 w-4 text-cyan-400" />
+              <span className="font-medium text-cyan-100">{t.heroTag}</span>
             </div>
-            <h1 className="mt-4 text-4xl font-bold leading-tight text-foreground sm:text-5xl lg:text-6xl">
+            <h1 className="mt-4 text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl drop-shadow-2xl">
               {t.heroTitle}
             </h1>
-            <p className="mt-4 text-lg text-foreground/80">
+            <p className="mt-4 text-lg text-cyan-50 drop-shadow-lg">
               {t.heroDescription}
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-              <Button asChild size="lg" className="px-6">
+              <Button asChild size="lg" className="px-6 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white shadow-lg shadow-cyan-500/30 border-0">
                 <Link href="/donate">{t.donateAnItem}</Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="px-6">
+              <Button asChild size="lg" variant="outline" className="px-6 border-cyan-400/50 bg-slate-900/60 text-cyan-100 hover:bg-cyan-500/20 hover:text-white hover:border-cyan-400 backdrop-blur shadow-lg">
                 <Link href="/browse">{t.browseDonations}</Link>
               </Button>
             </div>
