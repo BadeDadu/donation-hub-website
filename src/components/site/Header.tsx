@@ -46,28 +46,28 @@ export default function Header() {
 
   const NavLinks = () => (
     <ul className="flex flex-col gap-4 md:flex-row md:items-center md:gap-6">
-      <li><Link href="/" className="hover:underline">{t.home}</Link></li>
-      <li><Link href="/browse" className="hover:underline">{t.browse}</Link></li>
-      <li><Link href="/about" className="hover:underline">{t.about}</Link></li>
+      <li><Link href="/" className="hover:underline transition-colors hover:text-primary">{t.home}</Link></li>
+      <li><Link href="/browse" className="hover:underline transition-colors hover:text-primary">{t.browse}</Link></li>
+      <li><Link href="/about" className="hover:underline transition-colors hover:text-primary">{t.about}</Link></li>
       {isAuthenticated && (
-        <li><Link href="/profile" className="hover:underline">{t.profile || "Profile"}</Link></li>
+        <li><Link href="/profile" className="hover:underline transition-colors hover:text-primary">{t.profile || "Profile"}</Link></li>
       )}
       {isAdmin && (
-        <li><Link href="/admin" className="hover:underline">{t.admin || "Admin"}</Link></li>
+        <li><Link href="/admin" className="hover:underline transition-colors hover:text-primary">{t.admin || "Admin"}</Link></li>
       )}
     </ul>
   );
 
   return (
-    <header className="sticky top-0 z-50 border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 border-b border-border/40 bg-background/95 backdrop-blur-md supports-[backdrop-filter]:bg-background/80 shadow-sm">
       <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 font-semibold">
+        <Link href="/" className="flex items-center gap-2 font-semibold text-foreground hover:text-primary transition-colors">
           <Image 
             src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/48684663-18a4-4525-a40e-379acad4b922/generated_images/modern-minimal-logo-for-daansetu-donatio-22c5abf7-20250930165257.jpg"
             alt="DaanSetu Logo"
             width={32}
             height={32}
-            className="size-8 rounded-md object-cover"
+            className="size-8 rounded-md object-cover shadow-sm"
           />
           <span>DaanSetu</span>
         </Link>
@@ -79,7 +79,7 @@ export default function Header() {
         <div className="flex items-center gap-2">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon" aria-label="Change language">
+              <Button variant="ghost" size="icon" aria-label="Change language" className="hover:bg-muted/50">
                 <Languages className="size-5" />
               </Button>
             </DropdownMenuTrigger>
@@ -99,7 +99,7 @@ export default function Header() {
           {isAuthenticated ? (
             <Button 
               variant="outline" 
-              className="hidden md:inline-flex gap-2"
+              className="hidden md:inline-flex gap-2 bg-card/50 hover:bg-card border-border/40"
               onClick={handleLogout}
             >
               <LogOut className="size-4" />
@@ -107,7 +107,7 @@ export default function Header() {
             </Button>
           ) : (
             <>
-              <Button asChild variant="outline" className="hidden md:inline-flex">
+              <Button asChild variant="outline" className="hidden md:inline-flex bg-card/50 hover:bg-card border-border/40">
                 <Link href="/login">{t.login || "Log In"}</Link>
               </Button>
 
@@ -115,7 +115,7 @@ export default function Header() {
                 <Link href="/signup">{t.signUp || "Sign Up"}</Link>
               </Button>
 
-              <Button asChild variant="ghost" className="hidden md:inline-flex">
+              <Button asChild variant="ghost" className="hidden md:inline-flex hover:bg-muted/50">
                 <Link href="/admin/login">Admin Login</Link>
               </Button>
             </>
@@ -123,7 +123,7 @@ export default function Header() {
 
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
-              <Button variant="outline" size="icon" className="md:hidden" aria-label="Open menu">
+              <Button variant="outline" size="icon" className="md:hidden bg-card/50 hover:bg-card border-border/40" aria-label="Open menu">
                 <Menu className="size-5" />
               </Button>
             </SheetTrigger>
