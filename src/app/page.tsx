@@ -25,24 +25,17 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="https://images.unsplash.com/photo-1455218873509-8097305ee378?q=80&w=2000&auto=format&fit=crop"
-          alt="Hands holding a heart"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 to-background" />
+      <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-accent/5">
         <div className="relative mx-auto max-w-6xl px-4 py-24 sm:py-32">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 rounded-full border bg-background/60 px-3 py-1 text-sm backdrop-blur">
+            <div className="inline-flex items-center gap-2 rounded-full border bg-background/80 px-3 py-1 text-sm backdrop-blur shadow-sm">
               <HeartHandshake className="h-4 w-4 text-primary" />
-              {t.heroTag}
+              <span className="font-medium text-foreground">{t.heroTag}</span>
             </div>
-            <h1 className="mt-4 text-4xl font-semibold leading-tight sm:text-5xl">
+            <h1 className="mt-4 text-4xl font-bold leading-tight text-foreground sm:text-5xl lg:text-6xl">
               {t.heroTitle}
             </h1>
-            <p className="mt-4 text-muted-foreground">
+            <p className="mt-4 text-lg text-foreground/80">
               {t.heroDescription}
             </p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
@@ -61,8 +54,8 @@ export default function HomePage() {
       <section className="mx-auto max-w-6xl px-4 py-14">
         <div className="flex items-end justify-between gap-4">
           <div>
-            <h2 className="text-2xl font-semibold">{t.popularCategories}</h2>
-            <p className="text-muted-foreground mt-1">{t.categoriesDescription}</p>
+            <h2 className="text-2xl font-semibold text-foreground">{t.popularCategories}</h2>
+            <p className="text-foreground/70 mt-1">{t.categoriesDescription}</p>
           </div>
           <Button asChild variant="ghost" className="hidden sm:inline-flex">
             <Link href="/browse">{t.seeAll}</Link>
@@ -76,10 +69,10 @@ export default function HomePage() {
                 <div className="grid size-10 place-items-center rounded-md bg-primary/10 text-primary">
                   <Icon className="h-5 w-5" />
                 </div>
-                <CardTitle className="text-lg">{t[label as keyof typeof t]}</CardTitle>
+                <CardTitle className="text-lg text-foreground">{t[label as keyof typeof t]}</CardTitle>
               </CardHeader>
               <CardContent className="flex items-center justify-between">
-                <p className="text-sm text-muted-foreground">{t.donationsNeeded}</p>
+                <p className="text-sm text-foreground/70">{t.donationsNeeded}</p>
                 <Button asChild size="sm" variant="secondary">
                   <Link href="/browse">{t.browse}</Link>
                 </Button>
@@ -92,29 +85,29 @@ export default function HomePage() {
       {/* How it works */}
       <section className="bg-muted/30 py-14">
         <div className="mx-auto max-w-6xl px-4">
-          <h2 className="text-2xl font-semibold">{t.howItWorks}</h2>
+          <h2 className="text-2xl font-semibold text-foreground">{t.howItWorks}</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-3">
             <Card>
               <CardHeader>
-                <CardTitle className="text-base">{t.step1Title}</CardTitle>
+                <CardTitle className="text-base text-foreground">{t.step1Title}</CardTitle>
               </CardHeader>
-              <CardContent className="text-sm text-muted-foreground">
+              <CardContent className="text-sm text-foreground/70">
                 {t.step1Description}
               </CardContent>
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle className="text-base">{t.step2Title}</CardTitle>
+                <CardTitle className="text-base text-foreground">{t.step2Title}</CardTitle>
               </CardHeader>
-              <CardContent className="text-sm text-muted-foreground">
+              <CardContent className="text-sm text-foreground/70">
                 {t.step2Description}
               </CardContent>
             </Card>
             <Card>
               <CardHeader>
-                <CardTitle className="text-base">{t.step3Title}</CardTitle>
+                <CardTitle className="text-base text-foreground">{t.step3Title}</CardTitle>
               </CardHeader>
-              <CardContent className="text-sm text-muted-foreground">
+              <CardContent className="text-sm text-foreground/70">
                 {t.step3Description}
               </CardContent>
             </Card>
@@ -129,10 +122,10 @@ export default function HomePage() {
 
       {/* Final CTA */}
       <section className="mx-auto max-w-6xl px-4 py-14">
-        <div className="flex flex-col items-start justify-between gap-6 rounded-lg border p-6 sm:flex-row sm:items-center">
+        <div className="flex flex-col items-start justify-between gap-6 rounded-lg border p-6 sm:flex-row sm:items-center bg-card">
           <div>
-            <h3 className="text-xl font-semibold">{t.readyToDonate}</h3>
-            <p className="text-muted-foreground">{t.readyDescription}</p>
+            <h3 className="text-xl font-semibold text-foreground">{t.readyToDonate}</h3>
+            <p className="text-foreground/70">{t.readyDescription}</p>
           </div>
           <div className="flex gap-3">
             <Button asChild>
