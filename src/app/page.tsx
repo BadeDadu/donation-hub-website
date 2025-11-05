@@ -26,24 +26,36 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary/10 via-background to-primary/5">
-        <div className="mx-auto max-w-6xl px-4 py-8 sm:py-10">
-          <div className="max-w-xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-2 py-0.5 text-xs">
-              <HeartHandshake className="h-3 w-3 text-primary" />
+      <section className="relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://slelguoygbfzlpylpxfs.supabase.co/storage/v1/object/public/project-uploads/48684663-18a4-4525-a40e-379acad4b922/generated_images/serene-nature-landscape-wallpaper-with-l-71ae51ea-20251105164140.jpg"
+            alt="Nature background"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-background/80" />
+        </div>
+
+        <div className="relative z-10 mx-auto max-w-6xl px-4 py-24 sm:py-32 lg:py-40">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-sm px-4 py-1.5 text-sm">
+              <HeartHandshake className="h-4 w-4 text-primary" />
               <span className="font-medium text-foreground">{t.heroTag}</span>
             </div>
-            <h1 className="mt-2 text-xl font-bold leading-tight text-foreground sm:text-2xl lg:text-3xl">
+            <h1 className="mt-6 text-4xl font-bold leading-tight text-foreground sm:text-5xl lg:text-6xl">
               {t.heroTitle}
             </h1>
-            <p className="mt-1.5 text-sm text-muted-foreground">
+            <p className="mt-6 text-lg text-muted-foreground sm:text-xl">
               {t.heroDescription}
             </p>
-            <div className="mt-3 flex flex-col gap-2 sm:flex-row">
-              <Button asChild className="px-4">
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <Button asChild size="lg" className="px-8">
                 <Link href="/donate">{t.donateAnItem}</Link>
               </Button>
-              <Button asChild variant="outline" className="px-4">
+              <Button asChild variant="outline" size="lg" className="px-8 backdrop-blur-sm">
                 <Link href="/browse">{t.browseDonations}</Link>
               </Button>
             </div>
