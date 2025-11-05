@@ -127,20 +127,6 @@ export default function HomePage() {
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {recentDonations.map((donation) => (
               <Card key={donation.id} className="hover:shadow-md transition-shadow overflow-hidden">
-                <div className="relative aspect-video bg-muted">
-                  {donation.photoUrls && donation.photoUrls.length > 0 ? (
-                    <Image
-                      src={donation.photoUrls[0]}
-                      alt={donation.itemName}
-                      fill
-                      className="object-cover"
-                    />
-                  ) : (
-                    <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-                      <Package className="h-12 w-12" />
-                    </div>
-                  )}
-                </div>
                 <CardHeader>
                   <CardTitle className="text-lg text-foreground line-clamp-1">
                     {donation.itemName}
